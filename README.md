@@ -19,16 +19,16 @@ Not having an up to date curl library on Windows ;)
 
 # How?
 
-Gyp! ;)
+[Gyp](https://code.google.com/p/gyp/wiki/GypVsCMake)! ;)
 
 # Obtaining updates
 
-  $ git fetch
-  $ git submodule update --recursive
-
+    $ git pull
+    $ git submodule update --recursive
+    
 And rebuild as usual ;)
   
-# Curl dependencies (git submodules in this repository)
+# Curl dependencies
 
 - [Curl](https://github.com/bagder/curl): 7.30.0
 - [Openssl](https://github.com/openssl/openssl): 1.0.0.1e
@@ -42,34 +42,38 @@ And rebuild as usual ;)
 * [Ninja](http://martine.github.io/ninja/) (optional, but it's awesome sauce! ;)
 
 # Obtaining prerequisites 
-
-NB! *Remember to install python first!*
-
-    $ svn checkout http://gyp.googlecode.com/svn/trunk build\gyp
-    $ git clone git://github.com/martine/ninja.git build\ninja
-    $ cd ninja
-    $ configure
-    $ bootstrap
-	
-Add gyp and ninja to your windows path environment variable.
-
-# Obtaining curl/dependencies
 	
     $ git clone https://www.github.com/peters/curl-for-windows
     $ git submodule update --init --recursive
-	
-# Building with ninja
 
-	  $ gyp --depth=. -f ninja curl.gyp
-	  $ ninja -C out/Debug
-	  $ ninja -C out/Release
+**Please note that all builds generates a valid PDB associated with either debug or release**
+
+# Building with ninja (fastest)
+
+    $ cd build\ninja
+    $ python configure.py
+    $ python bootstrap.py
+    $ cd ..\..\
+    $ python configure
+    
+You will find a release of libcurl in out\Release\obj.
 
 *Takes about 30 seconds to build libcurl with ninja.*
 	
 # Building with Visual Studio
 
-	  $ gyp --depth=. -f msvs curl.gyp
-	
+    $ python configure --msvs
+		
+Or a specific msvs toolchain:
+
+    $ python configure --msvs --msvs-toolchain=[2008,2010,2012]
+    
+Open **curl.sln** ;)
+
+# Building a debug version of libcurl
+    
+    $ python configure --debug
+
 # Simple curl example
 ```
 #include <stdio.h>
