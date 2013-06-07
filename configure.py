@@ -1,15 +1,13 @@
 import optparse
 import os
-import pprint
-import re
-import shlex
-import subprocess
 import sys
+import shutil
 
 script_dir = os.path.dirname(__file__)
 root_dir = os.path.normpath(script_dir)
 output_dir = os.path.join(os.path.abspath(root_dir), 'out')
 ninja_root = os.path.join(os.path.abspath(root_dir), 'build\\ninja')
+curl_root = os.path.join(os.path.abspath(root_dir), 'curl')
 
 sys.path.insert(0, os.path.join(root_dir, 'build', 'gyp', 'pylib'))
 
@@ -117,6 +115,10 @@ def configure_buildsystem(o):
     # also build debug release
     if options.debug:
         o.extend(['--build', 'Debug'])
+
+    # copy curlbuild.h
+    shutil.copy(os.path.join(root_dir, "curlbuild.h"),
+                os.path.join(curl_root, "include\\curl\\curlbuild.h"))
 
 
 def host_arch_win():

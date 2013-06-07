@@ -59,23 +59,23 @@ And rebuild as usual ;)
     $ python configure.py
     $ python bootstrap.py
     $ cd ..\..\
-    $ python configure
+    $ python configure.py
     
 You will find a release of libcurl in out\Release\obj.
 
 # Building with Visual Studio
 
-    $ python configure --msvs
+    $ python configure.py --msvs
 		
 Or a specific msvs toolchain:
 
-    $ python configure --msvs --msvs-toolchain=[2008,2010,2012]
+    $ python configure.py --msvs --msvs-toolchain=[2008,2010,2012]
     
 Open **curl.sln** ;)
 
 # Building a debug version of libcurl
     
-    $ python configure --debug
+    $ python configure.py --debug
 
 # Simple curl example
 ```

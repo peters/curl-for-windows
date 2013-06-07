@@ -21,7 +21,7 @@
       'type': '<(library)',
       'include_dirs': [
      		'.',
-     		'curl',
+			'curl',
      		'curl/lib',
      		'curl/include',
   		],
