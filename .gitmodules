@@ -1,0 +1,6 @@
+[submodule "curl"]
+	path = curl
+	url = git://github.com/bagder/curl.git
+[submodule "libssh2"]
+	path = libssh2
+	url = git://git.libssh2.org/libssh2.git
