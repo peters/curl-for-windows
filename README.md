@@ -8,18 +8,23 @@ document.
 libcurl is the library curl is using to do its job. It is readily
 available to be used by your software. 
 
-# What?
+# About
 
-Build a statically linked version of Curl on Windows.
-Even sweeter, you can do it in like 10 minutes! 
+This repository is a collection of submodules (dependencies)
+that curl need to build successfully. Each submodule tracks
+the latest known release tag. (See below for specific version).
 
-# Motivation
+In order to make this easy to maintain i converted the buildsystem
+to GYP. Please note that is not a **_FORK** and no patches has
+been applied or sent upstream.
 
-Not having an up to date curl library on Windows ;)
+By following the tutorial below, you should be able build
+a working, statically linked version of the latest libcurl.
 
-# How?
+**NB** The curl executable is not being built, but i
+plan to provide that in the nearest future.
 
-[Gyp](https://code.google.com/p/gyp/wiki/GypVsCMake)! ;)
+Happy linking ;)
 
 # Obtaining updates
 
@@ -58,8 +63,6 @@ And rebuild as usual ;)
     
 You will find a release of libcurl in out\Release\obj.
 
-*Takes about 30 seconds to build libcurl with ninja.*
-	
 # Building with Visual Studio
 
     $ python configure --msvs
