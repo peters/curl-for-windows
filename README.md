@@ -60,7 +60,7 @@ Add gyp and ninja to your windows path environment variable.
 	
 # Building with ninja
 
-	  $ gyp --depth=..\ -f ninja curl.gyp
+	  $ gyp --depth=. -f ninja curl.gyp
 	  $ ninja -C out/Debug
 	  $ ninja -C out/Release
 	  $ out/Debug/obj/curl.exe --version
