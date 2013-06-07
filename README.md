@@ -63,7 +63,6 @@ Add gyp and ninja to your windows path environment variable.
 	  $ gyp --depth=. -f ninja curl.gyp
 	  $ ninja -C out/Debug
 	  $ ninja -C out/Release
-	  $ out/Debug/obj/curl.exe --version
 
 *Takes about 30 seconds to build libcurl with ninja.*
 	
