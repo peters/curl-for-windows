@@ -78,7 +78,7 @@ Open **curl.sln** ;)
     $ python configure --debug
 
 # Simple curl example
-```
+```c
 #include <stdio.h>
 #include <curl/curl.h>
 
