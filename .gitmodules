@@ -7,6 +7,6 @@
 [submodule "build/ninja"]
 	path = build/ninja
 	url = git://github.com/martine/ninja.git
-[submodule "gyp"]
-	path = gyp
+[submodule "build/gyp"]
+	path = build/gyp
 	url = git://github.com/svn2github/gyp.git
