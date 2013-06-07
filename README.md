@@ -121,10 +121,10 @@ int main(void)
   - CURL_STATICLIB
  
 - Add include directory
-	- <mypath>/curl/include
+	- path/to/curl/include
 
 - Add additional library search directory
-	- <mypath>/out/<Debug|Release>/obj
+	- path/to/out/Debug|Release/obj
 	
 - Link with the following libraries
   - libcurl.lib
