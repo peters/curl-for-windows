@@ -15,7 +15,7 @@ that curl need to build successfully. Each submodule tracks
 the latest known release tag. (See below for specific version).
 
 In order to make this easy to maintain i converted the buildsystem
-to GYP. Please note that is not a **_FORK** and no patches has
+to GYP. Please note that this is not a **_FORK_** and no patches has
 been applied or sent upstream.
 
 By following the tutorial below, you should be able build
@@ -78,7 +78,7 @@ Open **curl.sln** ;)
     $ python configure.py --debug
 
 # Simple curl example
-```
+```c
 #include <stdio.h>
 #include <curl/curl.h>
 
@@ -121,10 +121,10 @@ int main(void)
   - CURL_STATICLIB
  
 - Add include directory
-	- <mypath>/curl/include
+	- path/to/curl/include
 
 - Add additional library search directory
-	- <mypath>/out/<Debug|Release>/obj
+	- path/to/out/Debug|Release/obj
 	
 - Link with the following libraries
   - libcurl.lib
