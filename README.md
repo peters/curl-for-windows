@@ -20,18 +20,15 @@ been applied or sent upstream.
 By following the tutorial below, you should be able build
 a working, statically linked version of the latest libcurl.
 
-**NB** The curl executable is not being built, but i
-plan to provide that in the nearest future.
+**Both x86 and x64 builds are supported.**
 
 Happy linking ;)
 
 # Obtaining updates
 
-    $ git pull
+    $ git pull --rebase
     $ git submodule update --recursive
-    
-And rebuild as usual ;)
-  
+      
 # Curl dependencies
 
 - [Curl](https://github.com/bagder/curl): 7.30.0
@@ -63,8 +60,8 @@ Open respective **curl.sln** found in **out** folder ;)
 # Simple curl example
 
 If you are new to curl you can checkout the example project
-found in curl.sln or you can find additional examples [https://github.com/bagder/curl/tree/master/docs/examples](here).
-
+found in curl.sln or you can view additional the **[examples](https://github.com/bagder/curl/tree/master/docs/examples)**
+in the official curl repository.
 
 # Linking with libcurl (without gyp)
 
