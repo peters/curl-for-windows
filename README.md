@@ -43,7 +43,7 @@ Happy linking ;)
 
 # Obtaining prerequisites 
 	
-    $ git clone https://www.github.com/peters/curl-for-windows
+    $ git clone git://github.com/peters/curl-for-windows.git
     $ git submodule update --init --recursive
 
 # Configuration options
