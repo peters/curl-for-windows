@@ -1,5 +1,7 @@
 out/
-
+*.sln
+*.vcxproj
+*.vcxproj.filters
 
 # NuGet
 *.nupkg
