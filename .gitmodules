@@ -4,9 +4,6 @@
 [submodule "libssh2"]
 	path = libssh2
 	url = git://git.libssh2.org/libssh2.git
-[submodule "build/ninja"]
-	path = build/ninja
-	url = git://github.com/martine/ninja.git
 [submodule "build/gyp"]
 	path = build/gyp
 	url = git://github.com/svn2github/gyp.git
