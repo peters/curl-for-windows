@@ -20,12 +20,6 @@ except ImportError:
 # parse our options
 parser = optparse.OptionParser()
 
-parser.add_option("--debug",
-                  action="store_true",
-                  dest="debug",
-                  help="Also build debug build",
-                  default=False)
-
 parser.add_option("--toolchain",
                   action="store",
                   type="choice",
