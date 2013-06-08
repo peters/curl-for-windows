@@ -1,14 +1,8 @@
 # 2013 (C) Peter Rekdal Sunde
 
-# features:
-# -> libcurl/curl is statically linked with latest openssl/libssh2/zlib libraries
-# -> tested building both in debug/release on VC10, VC11
-
 # todo: 
 # -> fix asm build on windows for openssl
-# -> fix building shared libraries
-# -> write a configure script in python (enable/disable features)
-# ---> https://github.com/joyent/node/blob/master/configure)
+# -> fix building as a shared library
 
 {
   'includes': [
@@ -26,7 +20,16 @@
      		'curl/include',
   		],
       'defines': [
-     		'BUILDING_LIBCURL',
+	      'USE_SSLEAY',
+		  'USE_IPV6',
+		  'USE_SSH2',
+		  'USE_ZLIB',
+		  'USE_WINDOWS_SSPI',
+		  'HAVE_SPNEGO',
+		  'HAVE_ZLIB_H',
+		  'HAVE_ZLIB',
+		  'HAVE_LIBZ',
+     	  'BUILDING_LIBCURL',
   		],
       'dependencies': [
      		'openssl.gyp:openssl',

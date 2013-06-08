@@ -11,19 +11,6 @@
   },
   'target_defaults': {
     'default_configuration': 'Release',
-    'defines': [
-      'USE_SSLEAY',
-      'USE_IPV6',
-      'USE_SSH2',
-      'USE_ZLIB',
-      'USE_WINDOWS_SSPI',
-      'HAVE_SPNEGO',
-      'HAVE_ZLIB_H',
-      'HAVE_ZLIB',
-      'HAVE_LIBZ',
-      'USE_IDN=false',
-      'USE_WINSSL=false',
-    ],
     'configurations': {
       'Debug': {
         'defines': [
