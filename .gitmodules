@@ -9,4 +9,4 @@
 	url = git://github.com/svn2github/gyp.git
 [submodule "zlib"]
 	path = zlib
-	url = git://github.com/madler/zlib.git
+	url = https://github.com/madler/zlib
