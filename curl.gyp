@@ -33,9 +33,18 @@
      		'zlib.gyp:zlib',
      		'libssh2.gyp:libssh2'
   		],
-      'direct_dependent_settings': [
-     		'curl/include'
-  		],
+      'direct_dependent_settings': {
+			'conditions': [
+				['_type=="static_library"', {
+				  'defines':[
+					'CURL_STATICLIB'
+				  ]
+				}]
+			],
+			'include_dirs': [
+				'curl/include'			
+			],
+  	  },
       'sources':[
         'curl/src/tool_hugehelp.h',
         'curl/lib/file.c',
@@ -163,16 +172,23 @@
         },{
           # linux
         }],
-      ],
-      'conditions': [
-        ['_type=="static_library"', {
+		['_type=="static_library"', {
           'defines':[
             'CURL_STATICLIB'
           ]
         }]
       ],
     },
-    
+	{
+		'target_name': 'example',
+		'type': 'executable',
+		'dependencies': [
+			'libcurl',
+		],
+		'sources' : [
+			'example.c'
+		],
+	},
     #{
       # todo: examples
     #},

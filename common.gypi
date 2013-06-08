@@ -23,7 +23,6 @@
       'HAVE_LIBZ',
       'USE_IDN=false',
       'USE_WINSSL=false',
-      'Machine=<(target_arch)',
     ],
     'configurations': {
       'Debug': {
@@ -43,29 +42,38 @@
         ],
         'msvs_settings': {
           'VCCLCompilerTool': {
-            'RuntimeLibrary': 1,
-            #static debug 'Optimization': 0,
-            #/Od, no optimization
+            'RuntimeLibrary': 1, #static debug 
+			'Optimization': 0, #/Od, no optimization
             'MinimalRebuild': 'false',
             'OmitFramePointers': 'false',
             'BasicRuntimeChecks': 3, # /RTC1
           },
           'VCLinkerTool': {
-            'LinkIncremental': 2,
-            #enable incremental linking
+            'LinkIncremental': 2, #enable incremental linking
+			'conditions': 
+	        [
+	          ['target_arch=="x64"', {
+	            'TargetMachine': 17 # /MACHINE:X64
+	          }],
+	        ],
           },
         },
       },
       'Release': {
+		'conditions': [
+          ['target_arch=="x64"', {#
+              'msvs_configuration_platform': 'x64',
+            }
+          ],
+        ],
         'msvs_settings': {
-
           'VCCLCompilerTool': {
             'RuntimeLibrary': 0, #static release 
             'Optimization': 3, #/Ox, full optimization
-						'FavorSizeOrSpeed': 1, # /Ot, favour speed over size 
-						'InlineFunctionExpansion': 2, #/Ob2, inline anything eligible
-						'WholeProgramOptimization': 'true', # /GL, whole program optimization, needed for LTCG 
-						'OmitFramePointers': 'true',
+			'FavorSizeOrSpeed': 1, # /Ot, favour speed over size 
+			'InlineFunctionExpansion': 2, #/Ob2, inline anything eligible
+			'WholeProgramOptimization': 'true', # /GL, whole program optimization, needed for LTCG 
+			'OmitFramePointers': 'true',
             'EnableFunctionLevelLinking': 'true',
             'EnableIntrinsicFunctions': 'true',
             'RuntimeTypeInfo': 'false',
@@ -82,41 +90,22 @@
           'VCLinkerTool': {
             'LinkTimeCodeGeneration': 1, #link - time code generation 
             'OptimizeReferences': 2, #/OPT:REF
-						'EnableCOMDATFolding': 2, # /OPT: ICF 'LinkIncremental': 1,
-            #disable incremental linking
-          },
-        },
-      },
-      'msvs_settings': {
-        'VCCLCompilerTool': {
-          'StringPooling': 'true', #pool string literals 
-          'DebugInformationFormat': 3, #Generate a PDB 
-          'WarningLevel': 3,
-          'BufferSecurityCheck': 'true',
-          'ExceptionHandling': 1, #/EHsc
-	        'SuppressStartupBanner': 'true',
-	        'WarnAsError': 'false',
-      	},
-      	'VCLinkerTool': 
-      	{
-	        'conditions': 
+			'EnableCOMDATFolding': 2, # /OPT: ICF 
+			'LinkIncremental': 1, #disable incremental linking
+			'conditions': 
 	        [
 	          ['target_arch=="x64"', {
 	            'TargetMachine': 17 # /MACHINE:X64
 	          }],
 	        ],
-	        'GenerateDebugInformation': 'true',
-	        'RandomizedBaseAddress': 2, # enable ASLR
-	        'DataExecutionPrevention': 2, # enable DEP
-	        'AllowIsolation': 'true',
-	        'SuppressStartupBanner': 'true',
-	        'target_conditions': [
-	          ['_type=="executable"', {
-	            'SubSystem': 1, # console executable
-	          }],
-	         ],
-      	},
+          },
+        },
       },
     },
+  'msvs_settings' : {
+	'VCLinkerTool' : {
+		'GenerateDebugInformation': 'true',
+	}
+  }
   },
 }
