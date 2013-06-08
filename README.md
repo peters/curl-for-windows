@@ -12,7 +12,7 @@ available to be used by your software.
 
 This repository is a collection of submodules (dependencies)
 that curl need to build successfully. Each submodule tracks
-the latest known release tag. (See below for specific version). In order to make 
+the latest known git release tag. In order to make 
 this easy to maintain i converted the buildsystem to GYP. 
 Please note that this is not a **_FORK_** and no patches has
 been applied or sent upstream.
