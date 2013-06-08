@@ -5,7 +5,7 @@
   'variables': {
     'target_arch%': 'x86',
     'library%': 'static_library',
-    'openssl_enable_asm%': 0, # todo: fix support for asm generation on windows
+    'openssl_enable_asm%': 0, # only supported with the Visual Studio 2012 (VC11) toolchain.
     'gcc_version%': 0,
     'is_clang%': 0,
   },
