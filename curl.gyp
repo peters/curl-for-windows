@@ -1,6 +1,6 @@
 # 2013 (C) Peter Rekdal Sunde
 
-# todo: 
+# todo:
 # -> fix asm build on windows for openssl
 # -> fix building as a shared library
 
@@ -8,48 +8,50 @@
   'includes': [
     'common.gypi',
   ],
-  'targets': 
+  'targets':
   [
     {
       'target_name': 'libcurl',
       'type': '<(library)',
       'include_dirs': [
-     		'.',
-			'curl',
-     		'curl/lib',
-     		'curl/include',
-  		],
+        'build', # curl configuration
+        'curl',
+        'curl/lib',
+        'curl/include',
+      ],
       'defines': [
-	      'USE_SSLEAY',
-		  'USE_IPV6',
-		  'USE_SSH2',
-		  'USE_ZLIB',
-		  'USE_WINDOWS_SSPI',
-		  'HAVE_SPNEGO',
-		  'HAVE_ZLIB_H',
-		  'HAVE_ZLIB',
-		  'HAVE_LIBZ',
-     	  'BUILDING_LIBCURL',
-  		],
+        'USE_SSLEAY',
+        'USE_IPV6',
+        'USE_SSH2',
+        'USE_ZLIB',
+        'USE_WINDOWS_SSPI',
+        'HAVE_SPNEGO',
+        'HAVE_ZLIB_H',
+        'HAVE_ZLIB',
+        'HAVE_LIBZ',
+        'BUILDING_LIBCURL',
+      ],
       'dependencies': [
-     		'openssl.gyp:openssl',
-     		'zlib.gyp:zlib',
-     		'libssh2.gyp:libssh2'
-  		],
+        'openssl.gyp:openssl',
+        'zlib.gyp:zlib',
+        'libssh2.gyp:libssh2'
+      ],
       'direct_dependent_settings': {
-			'conditions': [
-				['_type=="static_library"', {
-				  'defines':[
-					'CURL_STATICLIB'
-				  ]
-				}]
-			],
-			'include_dirs': [
-				'curl/include'			
-			],
-  	  },
+        'conditions': [
+          ['_type=="static_library"',
+            {
+              'defines':[
+                'CURL_STATICLIB'
+              ]
+            }
+          ]
+        ],
+        'include_dirs': [
+          'curl/include'
+        ],
+      },
       'sources':[
-        'curl/src/tool_hugehelp.h',
+        'curl/src/tool_hugehelp.c',
         'curl/lib/file.c',
         'curl/lib/timeval.c',
         'curl/lib/base64.c',
@@ -69,7 +71,7 @@
         'curl/lib/version.c',
         'curl/lib/getenv.c',
         'curl/lib/escape.c',
-        'curl/lib/mprintf.c', 
+        'curl/lib/mprintf.c',
         'curl/lib/telnet.c',
         'curl/lib/netrc.c',
         'curl/lib/getinfo.c',
@@ -88,7 +90,7 @@
         'curl/lib/connect.c',
         'curl/lib/llist.c',
         'curl/lib/hash.c',
-        'curl/lib/multi.c', 
+        'curl/lib/multi.c',
         'curl/lib/content_encoding.c',
         'curl/lib/share.c',
         'curl/lib/http_digest.c',
@@ -102,7 +104,7 @@
         'curl/lib/amigaos.c',
         'curl/lib/hostasyn.c',
         'curl/lib/hostip4.c',
-        'curl/lib/hostip6.c', 
+        'curl/lib/hostip6.c',
         'curl/lib/hostsyn.c',
         'curl/lib/inet_ntop.c',
         'curl/lib/parsedate.c',
@@ -148,11 +150,11 @@
         'curl/lib/asyn-thread.c',
         'curl/lib/curl_gssapi.c',
         'curl/lib/curl_ntlm.c',
-        'curl/lib/curl_ntlm_wb.c', 
+        'curl/lib/curl_ntlm_wb.c',
         'curl/lib/curl_ntlm_core.c',
-        'curl/lib/curl_ntlm_msgs.c',    
+        'curl/lib/curl_ntlm_msgs.c',
         'curl/lib/curl_sasl.c',
-        'curl/lib/curl_schannel.c', 
+        'curl/lib/curl_schannel.c',
         'curl/lib/curl_multibyte.c',
         'curl/lib/curl_darwinssl.c',
         'curl/lib/hostcheck.c',
@@ -161,42 +163,109 @@
         'curl/lib/pipeline.c',
       ],
       'conditions':[
-        ['OS=="win"', {
-          'link_settings': {
-            'libraries': [
-              '-lws2_32.lib',
-              '-lwldap32.lib',
-              '-ladvapi32.lib',
-            ],
-          },        
-        }],
-        ['OS!="mac"', {
+        ['OS=="win"',
+          {
+            'link_settings': {
+              'libraries': [
+                '-lws2_32.lib',
+                '-lwldap32.lib',
+                '-ladvapi32.lib',
+              ],
+            },
+          }
+        ],
+        ['OS!="mac"',
+          {
           # todo
-        },{
+          },
+          {
           # linux
-        }],
-		['_type=="static_library"', {
-          'defines':[
-            'CURL_STATICLIB'
-          ]
-        }]
+          }
+        ],
+        ['_type=="static_library"',
+          {
+            'defines':[
+              'CURL_STATICLIB'
+            ]
+          }
+        ]
       ],
     },
 	{
-		'target_name': 'example',
-		'type': 'executable',
-		'dependencies': [
-			'libcurl',
-		],
-		'sources' : [
-			'example.c'
-		],
+	  'target_name': 'curl',
+	  'type': 'executable',
+	  'dependencies': [
+		'libcurl',
+	  ],
+	  'include_dirs': [
+        '.',
+        'curl/lib',		
+		'curl/src',
+	  ],
+	  'defines': [
+	    'USE_SSLEAY',
+        'USE_IPV6',
+        'USE_SSH2',
+        'USE_ZLIB',
+        'USE_WINDOWS_SSPI',
+        'HAVE_SPNEGO',
+        'HAVE_ZLIB_H',
+        'HAVE_ZLIB',
+        'HAVE_LIBZ',
+		'BUILDING_LIBCURL',
+	  ],
+	  'sources': [
+		'curl/src/tool_binmode.c',
+		'curl/src/tool_bname.c',
+		'curl/src/tool_cb_dbg.c',
+		'curl/src/tool_cb_hdr.c',
+		'curl/src/tool_cb_prg.c',
+		'curl/src/tool_cb_rea.c',
+		'curl/src/tool_cb_see.c',
+		'curl/src/tool_cb_wrt.c',
+		'curl/src/tool_cfgable.c',
+		'curl/src/tool_convert.c',
+		'curl/src/tool_dirhie.c',
+		'curl/src/tool_doswin.c',
+		'curl/src/tool_easysrc.c',
+		'curl/src/tool_formparse.c',
+		'curl/src/tool_getparam.c',
+		'curl/src/tool_getpass.c',
+		'curl/src/tool_help.c',
+		'curl/src/tool_helpers.c',
+		'curl/src/tool_homedir.c',
+		'curl/src/tool_libinfo.c',
+		'curl/src/tool_main.c',
+		'curl/src/tool_metalink.c',
+		'curl/src/tool_mfiles.c',
+		'curl/src/tool_msgs.c',
+		'curl/src/tool_operate.c',
+		'curl/src/tool_operhlp.c',
+		'curl/src/tool_panykey.c',
+		'curl/src/tool_paramhlp.c',
+		'curl/src/tool_parsecfg.c',
+		'curl/src/tool_setopt.c',
+		'curl/src/tool_sleep.c',
+		'curl/src/tool_urlglob.c',
+		'curl/src/tool_util.c',
+		'curl/src/tool_vms.c',
+		'curl/src/tool_writeenv.c',
+		'curl/src/tool_writeout.c',
+		'curl/src/tool_xattr.c',
+	  ],
 	},
-    #{
-      # todo: examples
-    #},
+    {
+      'target_name': 'example',
+      'type': 'executable',
+      'dependencies': [
+        'libcurl',
+      ],
+      'sources' : [
+        'example.c'
+      ],	  
+    },
     #{
       # todo: tests
     #}
- ],
+  ],
 }

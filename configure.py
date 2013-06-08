@@ -79,8 +79,12 @@ def configure_buildsystem(o):
     o.append('--suffix=.' + options.target_arch)
 
     # copy curlbuild.h
-    shutil.copy(os.path.join(root_dir, "curlbuild.h"),
+    shutil.copy(os.path.join(root_dir, "build\\curlbuild.h"),
                 os.path.join(curl_root, "include\\curl\\curlbuild.h"))
+
+    # copy tool_hugehelp.c
+    shutil.copy(os.path.join(root_dir, "build\\tool_hugehelp.c"),
+                os.path.join(curl_root, "src\\tool_hugehelp.c"))
 
 
 def host_arch():
