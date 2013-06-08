@@ -24,11 +24,6 @@ a working, statically linked version of the latest libcurl.
 
 Happy linking ;)
 
-# Obtaining updates
-
-    $ git pull --rebase
-    $ git submodule update --recursive
-      
 # Curl dependencies
 
 - [Curl](https://github.com/bagder/curl): 7.30.0
@@ -45,7 +40,7 @@ Happy linking ;)
 	
     $ git clone git://github.com/peters/curl-for-windows.git
     $ git submodule update --init --recursive
-
+      
 # Configuration options
     
     $ python configure --help
