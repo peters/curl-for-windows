@@ -12,27 +12,23 @@ available to be used by your software.
 
 This repository is a collection of submodules (dependencies)
 that curl need to build successfully. Each submodule tracks
-the latest known release tag. (See below for specific version).
-
-In order to make this easy to maintain i converted the buildsystem
-to GYP. Please note that this is not a **_FORK_** and no patches has
+the latest known release tag. (See below for specific version). In order to make 
+this easy to maintain i converted the buildsystem to GYP. 
+Please note that this is not a **_FORK_** and no patches has
 been applied or sent upstream.
 
 By following the tutorial below, you should be able build
 a working, statically linked version of the latest libcurl.
 
-**NB** The curl executable is not being built, but i
-plan to provide that in the nearest future.
+**Both x86 and x64 builds are supported.**
 
 Happy linking ;)
 
 # Obtaining updates
 
-    $ git pull
+    $ git pull --rebase
     $ git submodule update --recursive
-    
-And rebuild as usual ;)
-  
+      
 # Curl dependencies
 
 - [Curl](https://github.com/bagder/curl): 7.30.0
@@ -44,78 +40,30 @@ And rebuild as usual ;)
 
 * [Python 2.7](python.org)
 * [Gyp](https://code.google.com/p/gyp/wiki/GypVsCMake)
-* [Ninja](http://martine.github.io/ninja/) (optional, but it's awesome sauce! ;)
 
 # Obtaining prerequisites 
 	
     $ git clone https://www.github.com/peters/curl-for-windows
     $ git submodule update --init --recursive
 
-**Please note that all builds generates a valid PDB associated with either debug or release**
+# Generate project files
 
-# Building with ninja (fastest)
-
-    $ cd build\ninja
-    $ python configure.py
-    $ python bootstrap.py
-    $ cd ..\..\
-    $ python configure.py
+    $ python configure.py 
+    $ python configure.py --target-arch=x64
     
-You will find a release of libcurl in out\Release\obj.
-
-# Building with Visual Studio
-
-    $ python configure.py --msvs
-		
 Or a specific msvs toolchain:
 
-    $ python configure.py --msvs --msvs-toolchain=[2008,2010,2012]
+    $ python configure.py --toolchain=[2008,2010,2012]
     
-Open **curl.sln** ;)
-
-# Building a debug version of libcurl
-    
-    $ python configure.py --debug
+Open respective **curl.sln** found in **out** folder ;)
 
 # Simple curl example
-```c
-#include <stdio.h>
-#include <curl/curl.h>
 
-int main(void)
-{
-  CURL *curl;
-  CURLcode res;
+If you are new to curl you can checkout the example project
+found in curl.sln or you can view additional the **[examples](https://github.com/bagder/curl/tree/master/docs/examples)**
+in the official curl repository.
 
-  curl = curl_easy_init();
-  if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, "http://example.com");
-    /* example.com is redirected, so we tell libcurl to follow redirection */
-    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-
-    /* Perform the request, res will get the return code */
-    res = curl_easy_perform(curl);
-    /* Check for errors */
-    if(res != CURLE_OK)
-      fprintf(stderr, "curl_easy_perform() failed: %s\n",
-              curl_easy_strerror(res));
-
-    /* always cleanup */
-    curl_easy_cleanup(curl);
-  }
-  if(::IsDebuggerPresent())
-  {
-    ::WaitForSingleObject(GetCurrentProcess(), INFINITE);
-  }
-  return 0;
-}
-```
-
-# Additional examples
-
-[https://github.com/bagder/curl/tree/master/docs/examples](Click here.)
-
-# Linking with libcurl
+# Linking with libcurl (without gyp)
 
 - Add preprocessor flag 
   - CURL_STATICLIB
