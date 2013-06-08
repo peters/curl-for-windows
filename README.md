@@ -46,15 +46,25 @@ Happy linking ;)
     $ git clone https://www.github.com/peters/curl-for-windows
     $ git submodule update --init --recursive
 
+# Configuration options
+    
+    $ python configure --help
+
+```
+Usage: configure.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  --toolchain=TOOLCHAIN
+                        msvs toolchain to build for. [default: auto]
+  --target-arch=TARGET_ARCH
+                        CPU architecture to build for. [default: x86]
+```
+
 # Generate project files
 
     $ python configure.py 
-    $ python configure.py --target-arch=x64
-    
-Or a specific msvs toolchain:
 
-    $ python configure.py --toolchain=[2008,2010,2012]
-    
 Open respective **curl.sln** found in **out** folder ;)
 
 # Simple curl example
