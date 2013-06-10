@@ -24,6 +24,11 @@ a working, statically linked version of the latest libcurl.
 
 Happy linking ;)
 
+# Obtaining a free copy of visual studio
+
+If you do not have a visual studio license you can
+download [Visual Studio 2012 Express edition](http://go.microsoft.com/?linkid=9816758) for free.
+
 # Curl dependencies
 
 - [Curl](https://github.com/bagder/curl): 7.30.0
