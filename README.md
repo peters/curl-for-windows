@@ -24,6 +24,11 @@ a working, statically linked version of the latest libcurl.
 
 Happy linking ;)
 
+# Download prebuilt version of curl
+
+Download available for your convenience over at [SourceForge](https://sourceforge.net/projects/curlforwindows/files/?source=navbar) which
+also includes the static libraries.
+
 # Obtaining a free copy of visual studio
 
 If you do not have a visual studio license you can
