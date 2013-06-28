@@ -44,7 +44,6 @@ download [Visual Studio 2012 Express edition](http://go.microsoft.com/?linkid=98
 # Prerequisites
 
 * [Python 2.7](python.org)
-* [Gyp](https://code.google.com/p/gyp/wiki/GypVsCMake)
 
 # Obtaining prerequisites 
 	
