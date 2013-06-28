@@ -36,7 +36,7 @@ download [Visual Studio 2012 Express edition](http://go.microsoft.com/?linkid=98
 
 # Curl dependencies
 
-- [Curl](https://github.com/bagder/curl): 7.30.0
+- [Curl](https://github.com/bagder/curl): 7.31.0
 - [Openssl](https://github.com/openssl/openssl): 1.0.0.1e
 - [Libssh2](http://libssh2.org): 2.1.4.3
 - [Zlib](http://zlib.net): 1.2.8
@@ -53,7 +53,7 @@ download [Visual Studio 2012 Express edition](http://go.microsoft.com/?linkid=98
       
 # Configuration options
     
-    $ python configure --help
+    $ python configure.py --help
 
 ```
 Usage: configure.py [options]
