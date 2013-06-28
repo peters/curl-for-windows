@@ -47,7 +47,7 @@ download [Visual Studio 2012 Express edition](http://go.microsoft.com/?linkid=98
 
 # Obtaining prerequisites 
 	
-    $ git clone git://github.com/peters/curl-for-windows.git
+    $ git clone https://github.com/peters/curl-for-windows.git
     $ git submodule update --init --recursive
       
 # Configuration options
