@@ -52,6 +52,7 @@
       },
       'sources':[
         'curl/src/tool_hugehelp.c',
+		'curl/lib/dotdot.c',
         'curl/lib/file.c',
         'curl/lib/timeval.c',
         'curl/lib/base64.c',
@@ -96,7 +97,6 @@
         'curl/lib/http_digest.c',
         'curl/lib/md4.c',
         'curl/lib/md5.c',
-        'curl/lib/curl_rand.c',
         'curl/lib/http_negotiate.c',
         'curl/lib/inet_pton.c',
         'curl/lib/strtoofft.c',
