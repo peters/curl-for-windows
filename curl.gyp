@@ -80,7 +80,6 @@
         'curl/lib/strequal.c',
         'curl/lib/easy.c',
         'curl/lib/security.c',
-        'curl/lib/krb4.c',
         'curl/lib/curl_fnmatch.c',
         'curl/lib/fileinfo.c',
         'curl/lib/ftplistparser.c',
