@@ -84,7 +84,7 @@ def configure_buildsystem(o):
 
     # copy tool_hugehelp.c
     shutil.copy(os.path.join(root_dir, "build\\tool_hugehelp.c"),
-                os.path.join(curl_root, "src\\tool_hugehelp.c"))
+                os.path.join(curl_root, "lib\\tool_hugehelp.c"))
 
 
 def host_arch():

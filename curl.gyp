@@ -51,8 +51,8 @@
         ],
       },
       'sources':[
-        'curl/src/tool_hugehelp.c',
-		'curl/lib/dotdot.c',
+        'curl/lib/tool_hugehelp.c',
+        'curl/lib/dotdot.c',
         'curl/lib/file.c',
         'curl/lib/timeval.c',
         'curl/lib/base64.c',
