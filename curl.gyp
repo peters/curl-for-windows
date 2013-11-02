@@ -22,11 +22,12 @@
       'defines': [
         'USE_SSLEAY',
         'USE_IPV6',
-        'USE_SSH2',
+        'USE_LIBSSH2',
         'USE_ZLIB',
         'USE_WINDOWS_SSPI',
         'HAVE_SPNEGO',
         'HAVE_ZLIB_H',
+        'HAVE_LIBSSH2_H',
         'HAVE_ZLIB',
         'HAVE_LIBZ',
         'BUILDING_LIBCURL',
