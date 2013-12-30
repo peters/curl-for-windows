@@ -44,11 +44,12 @@
           ]
         ],
         'include_dirs': [
-          'curl/include'
+          'curl/include',
+          'build'
         ],
       },
       'sources':[
-        'curl/lib/tool_hugehelp.c',
+        'build/tool_hugehelp.c',
         'curl/lib/dotdot.c',
         'curl/lib/file.c',
         'curl/lib/timeval.c',
