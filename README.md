@@ -36,7 +36,6 @@ download [Visual Studio 2013 Express edition](http://go.microsoft.com/?linkid=98
 
 # Curl dependencies
 
-- [Curl](https://github.com/bagder/curl): 7.34.0
 - [Openssl](https://github.com/openssl/openssl): 1.0.0.1e
 - [Libssh2](http://libssh2.org): 2.1.4.3
 - [Zlib](http://zlib.net): 1.2.8
