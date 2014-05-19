@@ -1,12 +1,12 @@
 [submodule "curl"]
 	path = curl
-	url = git://github.com/bagder/curl.git
+	url = https://github.com/bagder/curl.git
 [submodule "libssh2"]
 	path = libssh2
-	url = git://git.libssh2.org/libssh2.git
+	url = https://git.libssh2.org/libssh2.git
 [submodule "build/gyp"]
 	path = build/gyp
-	url = git://github.com/svn2github/gyp.git
+	url = https://github.com/svn2github/gyp.git
 [submodule "zlib"]
 	path = zlib
-	url = https://github.com/madler/zlib
+	url = https://github.com/madler/zlib.git
